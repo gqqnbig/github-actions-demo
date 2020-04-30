@@ -9,8 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-    - name: Restore systemd binary
-      run: |
+    - run: |
         x=1
         y=2
         echo $x+$y
