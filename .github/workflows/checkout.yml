@@ -11,8 +11,10 @@ jobs:
     steps:
     - name: 选择项目
       run: |
-        let index=(RANDOM % 4)
-        arr=(demo advanced-play-search uMatrixCleaner)
+        # 不能用let index=RANDOM % 4
+        # 如果右值是0，那么let的退出码就是1，bash就直接终止了。
+        index=$((RANDOM % 4))
+        arr=(github-actions-demo advanced-play-search uMatrixCleaner)
         targetRepo=${arr[index]}
         if [[ ${targetRepo} ]]; then
           echo "将会检出${targetRepo}"
