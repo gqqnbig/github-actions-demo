@@ -9,7 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-    - run: |
+    - name: 设置shell环境变量
+      run: |
         x=1
         y=2
         echo $x+$y
+        echo "::set-env name=z::$x+$y"
+    - name: 读取上一步的环境变量
+      run: |
+        echo $z
