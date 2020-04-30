@@ -1,0 +1,16 @@
+name: systemd configuration
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Restore systemd binary
+      run: |
+        x=1
+        y=2
+        echo $x+$y
