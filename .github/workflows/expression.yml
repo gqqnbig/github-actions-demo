@@ -15,7 +15,11 @@ jobs:
         y=2
         let z=x+y
         echo "::set-env name=z::$z"
-    - name: 读取上一步的环境变量
+    - name: 条件执行1
       if: env.z > 2
+      run: |
+        echo $z
+    - name: 条件执行2
+      if: env.z > 3
       run: |
         echo $z
